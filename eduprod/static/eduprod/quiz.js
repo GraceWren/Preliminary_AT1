@@ -7,10 +7,10 @@ for (let i = 0; i < questions.length; i += 1) { //Initiallly set to false
 }
 //Check user answer is correct
 function CheckUserAnswer() {
-    let uanswer = document.forms["UserAnswerForm"]["UserAnswer"].value;
+    let uansewer = document.forms["UserAnswerForm"]["UserAnswer"].value;
     //const questions = JSON.parse(document.getElementById('content').getAttribute('data-questions'));
     let correctanswer = questions[currentQuestionIndex].fields.correctanswer;
-    if (uanswer == correctanswer) {
+    if (uansewer == correctanswer) {
         alert("Answer is correct");
         answerArray[currentQuestionIndex] = true;
         return false;
@@ -86,10 +86,12 @@ document.addEventListener("DOMContentLoaded", function() {
             HTMLQuestion += `<label for="UserAnswer">Answer:</label><br>`;
             HTMLQuestion += `<input type="text" id="UserAnswer" name="UserAnswer">`
             HTMLQuestion += `<input type="submit" value="Submit"></form><br>`;
-
-            HTMLQuestion += `<div class='answer' style='display: none;'> Answer: ${correctanswer}</div>\n`;
+            if (hasmultiplechoice) {
+                HTMLQuestion += `(Enter just A,B,C or D for multiple choice answers)`;
+            }
+            //HTMLQuestion += `<div class='answer' style='display: none;'> Answer: ${correctanswer}</div>\n`;
             content.innerHTML = HTMLQuestion;
-            btn.textContent = "Reveal Answer";
+            btn.textContent = "Next Question";
             CurrentQ.innerHTML = currentQuestionIndex+1
         } else {// show results at end of quiz
             clearInterval(timerId); 
@@ -109,10 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             PercentageCorrect = QuestionsCorrect/questions.length*100;
             ResultSummary += "<br><br> Percentage Correct: " + PercentageCorrect + "%";
-            content.innerHTML = ResultSummary;
-
-            
-        
+            content.innerHTML = ResultSummary;        
             btn.style.display = "none";
         }
     }
