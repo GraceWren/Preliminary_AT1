@@ -7,13 +7,10 @@ for (let i = 0; i < questions.length; i += 1) { //Initiallly set to false
 }
 //Check user answer is correct
 function CheckUserAnswer() {
-    let uansewer = document.forms["UserAnswerForm"]["UserAnswer"].value;
+    let uanswer = document.forms["UserAnswerForm"]["UserAnswer"].value;
     //const questions = JSON.parse(document.getElementById('content').getAttribute('data-questions'));
     let correctanswer = questions[currentQuestionIndex].fields.correctanswer;
-    //alert ("User answer: " + uansewer);
-    //alert ("Correct answer: " + correctanswer);
-    //alert ("Current Q number: " + currentQuestionIndex);
-    if (uansewer == correctanswer) {
+    if (uanswer == correctanswer) {
         alert("Answer is correct");
         answerArray[currentQuestionIndex] = true;
         return false;

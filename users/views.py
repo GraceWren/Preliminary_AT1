@@ -17,7 +17,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse("users:index"))
+            return HttpResponseRedirect(reverse("eduprod:index"))
         else:
             messages.success(request, "Invalid Credentials.")
             return render(request, "users/login.html")
