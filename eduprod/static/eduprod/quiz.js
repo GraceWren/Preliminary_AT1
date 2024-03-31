@@ -10,7 +10,7 @@ function CheckUserAnswer() {
     let uansewer = document.forms["UserAnswerForm"]["UserAnswer"].value;
     //const questions = JSON.parse(document.getElementById('content').getAttribute('data-questions'));
     let correctanswer = questions[currentQuestionIndex].fields.correctanswer;
-    if (uansewer == correctanswer) {
+    if (uansewer.toUpperCase() == correctanswer.toUpperCase()) {
         alert("Answer is correct");
         answerArray[currentQuestionIndex] = true;
         return false;
@@ -72,14 +72,14 @@ document.addEventListener("DOMContentLoaded", function() {
             HTMLQuestion = "";
             //if there is an image for this question, then display it before the question.
             if (question_image.length > 0) {
-                HTMLQuestion += `<img src="../${question_image}">\n`;
+                HTMLQuestion += `<img class="responsive" src="../${question_image}" >\n`;
             }
             HTMLQuestion += `<div class='question'>Question: ${question}</div>`;
             if (hasmultiplechoice) {
-                HTMLQuestion += `<div class='question'>A): ${answertextA}</div>`;
-                HTMLQuestion += `<div class='question'>B): ${answertextB}</div>`;
-                HTMLQuestion += `<div class='question'>C): ${answertextC}</div>`;
-                HTMLQuestion += `<div class='question'>D): ${answertextD}</div>`;
+                HTMLQuestion += `<div class='question'>A) ${answertextA}</div>`;
+                HTMLQuestion += `<div class='question'>B) ${answertextB}</div>`;
+                HTMLQuestion += `<div class='question'>C) ${answertextC}</div>`;
+                HTMLQuestion += `<div class='question'>D) ${answertextD}</div>`;
             }
             //Add form for input to get users answer
             HTMLQuestion += `<form name="UserAnswerForm" onsubmit="return CheckUserAnswer()">`;

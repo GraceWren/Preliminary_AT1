@@ -1,8 +1,9 @@
-body { font-family: Arial, sans-serif; padding: 20px; }
+body { font-family: Arial, sans-serif  padding: 20px; }
 .question, .answer { margin: 20px; font-size: 20px; }
 .header { background-color:#03629C; width: 100%; display: flex;}
 .headtext {float:left}
 .timer {color: white; font-size:4vw; width: 25%}
 .questionnum {color: white; font-size:4vw; width: 25%}
 .user-info {color: white; font-size:4vw; flex-grow: 1}
+.responsive {width: 100%; height: auto;}
 #revealBtn { margin: 20px; font-size: 16px; cursor: pointer; }
