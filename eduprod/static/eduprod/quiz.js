@@ -8,7 +8,6 @@ for (let i = 0; i < questions.length; i += 1) { //Initiallly set to false
 //Check user answer is correct
 function CheckUserAnswer() {
     let uansewer = document.forms["UserAnswerForm"]["UserAnswer"].value;
-    //const questions = JSON.parse(document.getElementById('content').getAttribute('data-questions'));
     let correctanswer = questions[currentQuestionIndex].fields.correctanswer;
     if (uansewer.toUpperCase() == correctanswer.toUpperCase()) {
         alert("Answer is correct");
@@ -89,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function() {
             if (hasmultiplechoice) {
                 HTMLQuestion += `(Enter just A,B,C or D for multiple choice answers)`;
             }
-            //HTMLQuestion += `<div class='answer' style='display: none;'> Answer: ${correctanswer}</div>\n`;
             content.innerHTML = HTMLQuestion;
             btn.textContent = "Next Question";
             CurrentQ.innerHTML = currentQuestionIndex+1
